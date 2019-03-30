@@ -2,4 +2,4 @@
 
 The Zentachain Token it called Zenta
 
-30.0.2019 testnet failed.
+30.03.2019 testnet failed.
