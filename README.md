@@ -10,5 +10,5 @@
 !*[License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)*
 
 ``
-06.04.2019 Testnet Passed. ✔️
+06.04.2019 Testnet Passed. ✔️ (Not Offical-Chain!)
 ``
