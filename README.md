@@ -4,4 +4,4 @@
 #####                               *Symbol: Zenta* 
 #####                             *Decimals: 18*
 #####                            *Algorithm:*
-#####                         *Total Tokens: 260,514,201*
+#####                         *Total Zenta: 260,514,201*
