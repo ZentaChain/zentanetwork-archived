@@ -3,5 +3,5 @@
 #####                                *Name: Zenta* 
 #####                               *Symbol: Zenta* 
 #####                             *Decimals: 18*
-#####                            *Algorithm:*
+#####                            *Algorithm:PoS*
 #####                         *Total Zenta: 260,514,201*
