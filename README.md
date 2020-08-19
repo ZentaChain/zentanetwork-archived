@@ -1,6 +1,6 @@
-### :zap: *Zenta* :zap:
+### :zap: *Zentachain* :zap:
 
-#####                                *Name: Zentachain* 
-#####                               *Symbol: Zenta* 
+#####                                *Name: Zenta* 
+#####                               *Symbol: Chain* 
 #####                            *Algorithm:PoA/NPoS* (Mainnet)
 #####                         *Total Zenta: 26,500,000*
