@@ -4,4 +4,4 @@ The construction of a fork-free blockchain with Substrate enables Zentalk and Ze
 ##### *Name: ZENTA* 
 ##### *Symbol: CHAIN*
 ##### *Algorithm:PoA/PoS* (Mainnet)
-##### *Total Zenta: 26,500,000*(Not offical)
+##### *Total Zenta: 5,500,000*
