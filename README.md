@@ -11,3 +11,7 @@ Getting Started
  * Symbol: CHAIN
  * Algorithm:PoA/PoS (Mainnet)
  * Total Zenta: 5,500,000
+
+
+License
+-
