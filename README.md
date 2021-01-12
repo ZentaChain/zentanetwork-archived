@@ -10,7 +10,7 @@ Getting Started
  * Name: ZENTA
  * Symbol: CHAIN
  * Algorithm:PoA/PoS (Mainnet)
- * Total Zenta: 5,500,000
+ * Total Supply: 5,500,000
 
 
 License
