@@ -1,5 +1,5 @@
 use sp_core::{Pair, Public, sr25519};
-use node_template_runtime::{
+use zenta_runtime::{
 	AccountId, AuraConfig, BalancesConfig, GenesisConfig, GrandpaConfig,
 	SudoConfig, SystemConfig, WASM_BINARY, Signature
 };
@@ -11,24 +11,21 @@ use sp_runtime::{Perbill};
 
 //Additional code
 
-use node_template_runtime::{SessionConfig};
-use node_template_runtime::opaque::{SessionKeys};
+use zenta_runtime::{ValidatorSetConfig};
+use zenta_runtime::{ImOnlineConfig};
+use zenta_runtime::{SessionConfig};
+use zenta_runtime::opaque::{SessionKeys};
+use zenta_runtime::{StakingConfig};
+use zenta_runtime::{BabeConfig};
+use zenta_runtime::{MembershipConfig};
+use zenta_runtime::{ElectionsPhragmenConfig};
+use zenta_runtime::{CollectiveConfig};
 
-
-use node_template_runtime::{StakingConfig};
-
-
-use node_template_runtime::{BabeConfig};
-
-
-use node_template_runtime::{ElectionsPhragmenConfig};
-
-
-use node_template_runtime::{CollectiveConfig};
+const DEFAULT_PROTOCOL_ID: &str = "zenta";
 
 
 // The URL for the telemetry server.
-// const STAGING_TELEMETRY_URL: &str = "wss://telemetry.polkadot.io/submit/";
+const STAGING_TELEMETRY_URL: &str = "wss://telemetry.polkadot.io/submit/";
 
 /// Specialized `ChainSpec`. This is a specialization of the general Substrate ChainSpec type.
 pub type ChainSpec = sc_service::GenericChainSpec<GenesisConfig>;
@@ -144,6 +141,8 @@ pub fn local_testnet_config() -> Result<ChainSpec, String> {
 	))
 }
 
+
+
 fn session_keys(
 	aura: AuraId,
 	grandpa: GrandpaId,
@@ -188,6 +187,10 @@ fn testnet_genesis(
 	elections_phragmen: Some(ElectionsPhragmenConfig {
 			members: vec![],
 		}),
+	membership: Some(MembershipConfig {
+			phantom: Default::default(),
+			members: Default::default(),
+		}),
 	babe: Some(BabeConfig {
 			authorities: vec![],
 		}),
@@ -212,6 +215,12 @@ fn testnet_genesis(
 					)
 				)
 			}).collect::<Vec<_>>(),
+		}),
+	im_online: Some(ImOnlineConfig {
+			keys: vec![],
+		}),
+	validator_set: Some(ValidatorSetConfig {
+			validators: vec![get_account_id_from_seed::<sr25519::Public>("Alice")],
 		}),
 }
 }

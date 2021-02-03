@@ -1,10 +1,10 @@
 [package]
-authors = ['harunkacemer@zentachain.io']
+authors = ['harunkacemer@zentachain.io, team@zentachain.io']
 edition = '2018'
 homepage = 'https://zentachain.io'
-license = ''
+license = 'GPL-3.0'
 name = 'zenta-runtime'
-repository = 'https://github.com/ZentaChain/Zentanetwork/'
+repository = ''
 version = '2.0.0'
 
 [package.metadata.docs.rs]
@@ -80,6 +80,16 @@ default-features = false
 package = 'pallet-democracy'
 version = '2.0.0'
 
+[dependencies.membership]
+default-features = false
+package = 'pallet-membership'
+version = '2.0.0'
+
+[dependencies.finality-tracker]
+default-features = false
+package = 'pallet-finality-tracker'
+version = '2.0.0'
+
 [dependencies.babe]
 default-features = false
 package = 'pallet-babe'
@@ -99,6 +109,23 @@ version = '2.0.0'
 default-features = false
 package = 'pallet-authorship'
 version = '2.0.0'
+
+[dependencies.authority-discovery]
+default-features = false
+package = 'pallet-authority-discovery'
+version = '2.0.0'
+
+[dependencies.im-online]
+default-features = false
+package = 'pallet-im-online'
+version = '2.0.0'
+
+[dependencies.validator-set]
+default-features = false
+git = 'https://github.com/MVPWorkshop/substrate-validator-set'
+package = 'substrate-validator-set'
+branch = 'master'
+version = '0.2.0'
 
 [features]
 default = ['std']
@@ -145,8 +172,13 @@ std = [
 	'elections-phragmen/std',
 	'treasury/std',
 	'democracy/std',
+	'membership/std',
+	'finality-tracker/std',
 	'babe/std',
 	'staking/std',
 	'session/std',
 	'authorship/std',
+	'authority-discovery/std',
+	'im-online/std',
+	'validator-set/std',
 ]

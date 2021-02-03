@@ -1,16 +1,18 @@
 [package]
-authors = ['Substrate DevHub <https://github.com/substrate-developer-hub>']
+authors = ['harunkacemer@zentachain.io, team@zentachain.io']
 build = 'build.rs'
-description = 'A fresh FRAME-based Substrate node, ready for hacking.'
+description = 'Zentachain is a Substrate-based, forkless PoS blockchain for communication and data storage.'
 edition = '2018'
-homepage = 'https://substrate.dev'
-license = 'Unlicense'
-name = 'node-template'
-repository = 'https://github.com/substrate-developer-hub/substrate-node-template/'
+homepage = 'https://zentachain.io'
+license = 'GPL-3.0'
+name = 'zenta'
+repository = ''
 version = '2.0.0'
 
+default-run = "zenta"
+
 [[bin]]
-name = 'node-template'
+name = 'zenta'
 
 [package.metadata.docs.rs]
 targets = ['x86_64-unknown-linux-gnu']
@@ -23,7 +25,7 @@ jsonrpc-core = '15.0.0'
 structopt = '0.3.8'
 
 # local dependencies
-node-template-runtime = { path = '../runtime', version = '2.0.0' }
+zenta-runtime = { path = '../runtime', version = '2.0.0' }
 
 # Substrate dependencies
 frame-benchmarking = '2.0.0'
@@ -54,4 +56,4 @@ substrate-frame-rpc-system = '2.0.0'
 
 [features]
 default = []
-runtime-benchmarks = ['node-template-runtime/runtime-benchmarks']
+runtime-benchmarks = ['zenta-runtime/runtime-benchmarks']

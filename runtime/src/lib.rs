@@ -46,6 +46,10 @@ impl<C> frame_system::offchain::SendTransactionTypes<C> for Runtime where Call: 
 
 //Additional code
 
+use sp_runtime::MultiSigner;
+use im_online::sr25519::AuthorityId as ImOnlineId;
+
+
 use sp_runtime::traits::{ OpaqueKeys };
 impl session::historical::Trait for Runtime {
 	type FullIdentification = staking::Exposure<AccountId, Balance>;
@@ -117,8 +121,8 @@ pub mod opaque {
 }
 
 pub const VERSION: RuntimeVersion = RuntimeVersion {
-	spec_name: create_runtime_str!("node-template"),
-	impl_name: create_runtime_str!("node-template"),
+	spec_name: create_runtime_str!("zenta"),
+	impl_name: create_runtime_str!("zenta"),
 	authoring_version: 1,
 	spec_version: 1,
 	impl_version: 1,
@@ -127,8 +131,8 @@ pub const VERSION: RuntimeVersion = RuntimeVersion {
 };
 
 pub const MILLISECS_PER_BLOCK: u64 = 6000;
-
 pub const SLOT_DURATION: u64 = MILLISECS_PER_BLOCK;
+
 
 // Time is measured by number of blocks.
 pub const MINUTES: BlockNumber = 60_000 / (MILLISECS_PER_BLOCK as BlockNumber);
@@ -429,6 +433,28 @@ impl democracy::Trait for Runtime {
 	type WeightInfo = ();
 }
 
+impl membership::Trait for Runtime { 
+	type Event = Event;
+	type AddOrigin = EnsureRoot<AccountId>;
+	type RemoveOrigin = EnsureRoot<AccountId>;
+	type SwapOrigin = EnsureRoot<AccountId>;
+	type ResetOrigin = EnsureRoot<AccountId>;
+	type PrimeOrigin = EnsureRoot<AccountId>;
+	type MembershipChanged = ();
+	type MembershipInitialized = ();
+}
+
+parameter_types! { 
+	pub const WindowSize: BlockNumber = 101;
+	pub const ReportLatency: BlockNumber = 1000;
+}
+
+impl finality_tracker::Trait for Runtime { 
+	type OnFinalizationStalled = ();
+	type WindowSize = WindowSize;
+	type ReportLatency = ReportLatency;
+}
+
 parameter_types! { 
 	pub const EpochDuration: u64 = 200;
 	pub const ExpectedBlockTime: u64 = 3000;
@@ -515,6 +541,30 @@ impl authorship::Trait for Runtime {
 	type UncleGenerations = UncleGenerations;
 }
 
+impl authority_discovery::Trait for Runtime { 
+}
+
+parameter_types! { 
+	pub const SessionDuration: BlockNumber = 200;
+	pub const UnsignedPriorityImOnline: TransactionPriority = TransactionPriority::max_value();
+}
+
+impl im_online::Trait for Runtime { 
+	type Event = Event;
+	type AuthorityId = ImOnlineId;
+	type WeightInfo = ();
+	type ReportUnresponsiveness = ();
+	type SessionDuration = SessionDuration;
+	type UnsignedPriority = UnsignedPriorityImOnline;
+}
+
+
+
+impl validator_set::Trait for Runtime { 
+	type Event = Event;
+}
+
+
 construct_runtime!(
 	pub enum Runtime where
 		Block = Block,
@@ -533,11 +583,16 @@ construct_runtime!(
 		ElectionsPhragmen: elections_phragmen::{Module, Call, Storage, Event<T>, Config<T> },
 		Treasury: treasury::{Module, Call, Storage, Event<T> },
 		Democracy: democracy::{Module, Call, Storage, Event<T> },
+		Membership: membership::{Module, Call, Storage, Event<T>, Config<T> },
+		FinalityTracker: finality_tracker::{Module, Call, Storage },
 		Babe: babe::{Module, Call, Storage, Config, Inherent, ValidateUnsigned },
 		Staking: staking::{Module, Call, Config<T>, Storage, Event<T>, ValidateUnsigned },
 		Session: session::{Module, Call, Storage, Event, Config<T> },
 		Authorship: authorship::{Module, Call, Storage, Inherent },
-
+		AuthorityDiscovery: authority_discovery::{Module, Call, Storage },
+		ImOnline: im_online::{Module, Call, Storage, Event<T>, ValidateUnsigned, Config<T> },
+		ValidatorSet: validator_set::{Module, Call, Storage, Event<T>, Config<T> },
+		Multisig: pallet_multisig::{Module, Call, Storage, Event<T>},
 	}
 );
 
