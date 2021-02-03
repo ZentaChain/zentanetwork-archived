@@ -14,6 +14,6 @@ Zenta (CHAIN) is a Substrate-based, forkless PoS blockchain for communication an
 
 --
 
-## Introduction & Build
+## Introduction
 
 Getting Started with Zentanetwork: [DocHub](https://docs.zentachain.io)
