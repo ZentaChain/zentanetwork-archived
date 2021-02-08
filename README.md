@@ -18,7 +18,6 @@ cargo build --release
 ### Local node
 ````
 ./target/release/zenta --testnet
-
 ````
 ### Multi Local
 
