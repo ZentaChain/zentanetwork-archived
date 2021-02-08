@@ -25,3 +25,7 @@ cargo build --release
 ### Advanced Introduction 
 
 Getting Started with Zentanetwork: [DocHub](https://docs.zentachain.io)
+
+### License
+
+--
