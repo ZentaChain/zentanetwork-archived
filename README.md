@@ -15,7 +15,13 @@ cargo build --release
 ### Networks
 --
 
-### Local nodes
+### Local node
+````
+./target/release/zenta --testnet
+
+````
+### Multi Local
+
 --
 
 ### Test
