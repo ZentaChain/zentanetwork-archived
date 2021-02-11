@@ -5,6 +5,8 @@ The construction of a fork-free blockchain with Substrate enables Zentalk and Ze
 
 ### Build the $CHAIN
 
+Getting Started with Zentanetwork
+
 ````
 cargo build --release
 ````
@@ -54,7 +56,7 @@ cargo build --release
 
 ### Advanced Introduction 
 
-Getting Started with Zentanetwork: [DocHub](https://docs.zentachain.io)
+[DocHub](https://docs.zentachain.io)
 
 ### License
 
