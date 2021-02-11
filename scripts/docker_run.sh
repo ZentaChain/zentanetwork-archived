@@ -2,7 +2,7 @@
 
 set -e
 
-echo "*** Start Substrate node zenta ***"
+echo "*** Start Substrate node zentachain ***"
 
 cd $(dirname ${BASH_SOURCE[0]})/..
 
