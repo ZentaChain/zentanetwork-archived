@@ -44,7 +44,7 @@ cargo build --release
 ````
 
 ### Purge DB
-
+Purging chain-database
 ````
 ./target/release/zenta purge-chain --chain=ID
 ````
