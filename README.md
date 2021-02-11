@@ -13,11 +13,11 @@ cargo build --release
 
 ## Test-networks
 
-### Local node
+### Local-network
 ````
 ./target/release/zenta --testnet
 ````
-### Multi Local
+### Multi-local-network
 ---
 ### Dev-network
 
@@ -25,19 +25,19 @@ cargo build --release
  ./target/release/zenta --dev
 ````
 
-### Zajin Network (Alpha)
+### Zajin-network (Alpha)
 
 ````
  ./target/release/zenta --zajin
  ````
  
-### Zikaron Network (Beta)
+### Zikaron-network (Beta)
 
 ````
  ./target/release/zenta --zikaron
 ````
 
-### Zentachain Mainnet (Aleph-Network)
+### Zentachain Main-network (Aleph-Network)
 
 ````
 ./target/release/zenta --mainnet
