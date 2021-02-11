@@ -2,16 +2,16 @@ version: "3.2"
 
 services:
   dev:
-    container_name: zenta
+    container_name: zentachain
     image: paritytech/ci-linux:974ba3ac-20201006
-    working_dir: /var/www/zenta
+    working_dir: /var/www/zentachain
     ports:
       - "9944:9944"
     environment:
-      - CARGO_HOME=/var/www/zenta/.cargo
+      - CARGO_HOME=/var/www/zentachain/.cargo
     volumes:
-      - .:/var/www/zenta
+      - .:/var/www/zentachain
       - type: bind
         source: ./.local
         target: /root/.local
-    command: bash -c "cargo build --release && ./target/release/zenta --dev --ws-external"
+    command: bash -c "cargo build --release && ./target/release/zentachain --dev --ws-external"
