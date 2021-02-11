@@ -5,7 +5,7 @@ description = 'Zentachain is a Substrate-based, forkless PoS blockchain for comm
 edition = '2018'
 homepage = 'https://zentachain.io'
 license = 'GPL-3.0'
-name = 'zenta'
+name = 'zentachain'
 repository = ''
 version = '2.0.0'
 default-run = "zenta"
@@ -55,4 +55,4 @@ substrate-frame-rpc-system = '2.0.0'
 
 [features]
 default = []
-runtime-benchmarks = ['zenta-runtime/runtime-benchmarks']
+runtime-benchmarks = ['zentachain-runtime/runtime-benchmarks']
