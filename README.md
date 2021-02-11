@@ -15,43 +15,43 @@ cargo build --release
 
 ### Local-network
 ````
-./target/release/zenta --testnet
+./target/release/zentachain --testnet
 ````
 ### Multi-local-network
 ---
 ### Dev-network
 Run single-node in development network 
 ````
- ./target/release/zenta --dev
+ ./target/release/zentachain --dev
 ````
 
 ### Zajin-network (Alpha)
 
 ````
- ./target/release/zenta --zajin
+ ./target/release/zentachain --zajin
  ````
  
 ### Zikaron-network (Beta)
 
 ````
- ./target/release/zenta --zikaron
+ ./target/release/zentachain --zikaron
 ````
 
 ### Zentachain Main-network (Aleph-Network)
 
 ````
-./target/release/zenta --mainnet
+./target/release/zentachain --mainnet
 ````
 
 ### Purge DB
 Purging chain-database
 ````
-./target/release/zenta purge-chain --chain=ID
+./target/release/zentachain purge-chain --chain=ID
 ````
 ### Help
 
 ````
-./target/release/zenta --help
+./target/release/zentachain --help
 ````
 
 ### Advanced Introduction 
