@@ -15,10 +15,13 @@ cargo build --release
 
 ### Local-network
 ````
-./target/release/zentachain --testnet
+./target/release/zentachain --testnet-local
 ````
 ### Multi-local-network
----
+````
+./target/release/zentachain --testnet-local --alice -d /tmp/alice
+````
+
 ### Dev-network
 Run single-node in development network 
 ````
