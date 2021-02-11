@@ -14,16 +14,22 @@ cargo build --release
 ## Test-networks
 
 ### Local-network
+
 ````
 ./target/release/zentachain --testnet-local
 ````
 ### Multi-local-network
+
 ````
 ./target/release/zentachain --testnet-local --alice -d /tmp/alice
 ````
 
+````
+./target/release/zentachain --testnet-local --bob -d /tmp/bob --port 30334 --bootnodes '/ip4/127.0.0.1/tcp/30333/p2p/BOOTNODEID'
+````
 ### Dev-network
-Run single-node in development network 
+Run single-node in development network
+
 ````
  ./target/release/zentachain --dev
 ````
@@ -48,6 +54,7 @@ Run single-node in development network
 
 ### Purge DB
 Purging chain-database
+
 ````
 ./target/release/zentachain purge-chain --chain=ID
 ````
