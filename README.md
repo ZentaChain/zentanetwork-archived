@@ -20,7 +20,7 @@ cargo build --release
 ### Multi-local-network
 ---
 ### Dev-network
-
+Run single-node in development network 
 ````
  ./target/release/zenta --dev
 ````
