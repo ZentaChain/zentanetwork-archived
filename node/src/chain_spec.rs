@@ -1,5 +1,5 @@
 use sp_core::{Pair, Public, sr25519};
-use zenta_runtime::{
+use zentachain_runtime::{
 	AccountId, AuraConfig, BalancesConfig, GenesisConfig, GrandpaConfig,
 	SudoConfig, SystemConfig, WASM_BINARY, Signature
 };
@@ -11,15 +11,15 @@ use sp_runtime::{Perbill};
 
 //Additional code
 
-use zenta_runtime::{ValidatorSetConfig};
-use zenta_runtime::{ImOnlineConfig};
-use zenta_runtime::{SessionConfig};
-use zenta_runtime::opaque::{SessionKeys};
-use zenta_runtime::{StakingConfig};
-use zenta_runtime::{BabeConfig};
-use zenta_runtime::{MembershipConfig};
-use zenta_runtime::{ElectionsPhragmenConfig};
-use zenta_runtime::{CollectiveConfig};
+use zentachain_runtime::{ValidatorSetConfig};
+use zentachain_runtime::{ImOnlineConfig};
+use zentachain_runtime::{SessionConfig};
+use zentachain_runtime::opaque::{SessionKeys};
+use zentachain_runtime::{StakingConfig};
+use zentachain_runtime::{BabeConfig};
+use zentachain_runtime::{MembershipConfig};
+use zentachain_runtime::{ElectionsPhragmenConfig};
+use zentachain_runtime::{CollectiveConfig};
 
 const DEFAULT_PROTOCOL_ID: &str = "zenta";
 
