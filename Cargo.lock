@@ -8046,7 +8046,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "zenta"
+name = "zentachain"
 version = "2.0.0"
 dependencies = [
  "frame-benchmarking",
@@ -8077,11 +8077,11 @@ dependencies = [
  "structopt",
  "substrate-build-script-utils",
  "substrate-frame-rpc-system",
- "zenta-runtime",
+ "zentachain-runtime",
 ]
 
 [[package]]
-name = "zenta-runtime"
+name = "zentachain-runtime"
 version = "2.0.0"
 dependencies = [
  "bigint",
