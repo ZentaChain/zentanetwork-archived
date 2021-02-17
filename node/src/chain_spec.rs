@@ -21,7 +21,7 @@ use zentachain_runtime::{MembershipConfig};
 use zentachain_runtime::{ElectionsPhragmenConfig};
 use zentachain_runtime::{CollectiveConfig};
 
-const DEFAULT_PROTOCOL_ID: &str = "zenta";
+const DEFAULT_PROTOCOL_ID: &str = "CHAIN";
 
 
 // The URL for the telemetry server.
