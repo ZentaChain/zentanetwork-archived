@@ -35,7 +35,7 @@ Run single-node in development network
 ````
 
 ### Zajin-network (Alpha)
-
+Run single-node in Zajin-network
 ````
  ./target/release/zentachain --zajin
  ````
@@ -59,13 +59,13 @@ Purging chain-database
 ./target/release/zentachain purge-chain --chain=ID
 ````
 ### Help
-
+For a breakdown of substrate command-line options
 ````
 ./target/release/zentachain --help
 ````
 
 ### Advanced Introduction 
-
+For deeper insights into the Zentanetwork
 [DocHub](https://docs.zentachain.io)
 
 ### License
