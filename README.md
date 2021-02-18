@@ -5,6 +5,12 @@ The construction of a fork-free blockchain with Substrate enables Zentalk and Ze
 
 ### Build the $CHAIN
 
+# Fast Build and test
+
+````
+cargo test --all
+````
+
 Getting Started with Zentanetwork
 
 ````
