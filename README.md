@@ -62,7 +62,7 @@ Run single-node in Zajin-network
 Purging chain-database
 
 ````
-./target/release/zentachain purge-chain --chain=ID
+./target/release/zentachain purge-chain --"chainID"
 ````
 ### Help
 For a breakdown of substrate command-line options
