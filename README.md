@@ -47,7 +47,7 @@ Run single-node in Zajin-network
  ````
  
 ### Zikaron-network (Beta)
-
+Run single-node in Zikaron-network
 ````
  ./target/release/zentachain --zikaron
 ````
