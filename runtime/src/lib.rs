@@ -285,7 +285,7 @@ impl pallet_transaction_payment::Trait for Runtime {
 	type FeeMultiplierUpdate = ();
 }
 
-impl pallet_sudo::Trait for Runtime {
+impl pallet_sudo::Config for Runtime {
 	type Event = Event;
 	type Call = Call;
 }
