@@ -1,6 +1,6 @@
 # :zap: Zentanetwork :zap:
 
-Zenta is a forkless PoS network for communication and data storage. 
+Zenta is a forkless Proof of Stake network for communication and data storage. 
 The construction of a fork-free network with Substrate enables Zentalk and Zentavault to make the perfect provision for Zentachain ecosystem. Zentameshnet is allow Zentalk users to communicate offline 2 offline.
 
 ### Build the $CHAIN
