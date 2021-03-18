@@ -75,6 +75,9 @@ For a breakdown of substrate command-line options
 $ ./target/release/zentachain --help
 ````
 
+### Status
+Active under development.
+
 ### Advanced Introduction 
 For deeper insights into the Zentanetwork
 [DocHub](https://docs.zentachain.io)
