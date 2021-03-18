@@ -5,16 +5,21 @@ The construction of a fork-free network with Substrate enables Zentalk and Zenta
 
 ### Build the $CHAIN
 
+Install
+````
+$ git clone https://github.com/ZentaChain/Zentanetwork
+````
+
 Fast Build check
 
 ````
-cargo test --all
+$ cargo test --all
 ````
 
 Getting Started with Zentanetwork
 
 ````
-cargo build --release
+$ cargo build --release
 ````
 
 ## Test-networks
@@ -22,12 +27,12 @@ cargo build --release
 ### Local-network
 
 ````
-./target/release/zentachain --testnet-local
+$ ./target/release/zentachain --testnet-local
 ````
 ### Multi-local-network
 
 ````
-./target/release/zentachain --testnet-local --alice -d /tmp/alice
+$ ./target/release/zentachain --testnet-local --alice -d /tmp/alice
 ````
 
 ````
@@ -37,37 +42,37 @@ cargo build --release
 Run single-node in development network
 
 ````
- ./target/release/zentachain --dev
+$ ./target/release/zentachain --dev
 ````
 
 ### Zajin-network (Alpha)
 Run single-node in Zajin-network
 ````
- ./target/release/zentachain --zajin
+$ ./target/release/zentachain --zajin
  ````
  
 ### Zikaron-network (Beta)
 Run single-node in Zikaron-network
 ````
- ./target/release/zentachain --zikaron
+$ ./target/release/zentachain --zikaron
 ````
 
 ### Zentachain Main-network (Aleph-Network)
 
 ````
-./target/release/zentachain --mainnet
+$ ./target/release/zentachain --mainnet
 ````
 
 ### Purge DB
 Purging chain-database
 
 ````
-./target/release/zentachain purge-chain --"chainID"
+$ ./target/release/zentachain purge-chain --"chainID"
 ````
 ### Help
 For a breakdown of substrate command-line options
 ````
-./target/release/zentachain --help
+$ ./target/release/zentachain --help
 ````
 
 ### Advanced Introduction 
