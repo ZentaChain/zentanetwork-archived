@@ -30,11 +30,12 @@ $ cargo build --release
 $ ./target/release/zentachain --testnet-local
 ````
 ### Multi-local-network
+Alice
 
 ````
 $ ./target/release/zentachain --testnet-local --alice -d /tmp/alice
 ````
-
+Bob
 ````
 ./target/release/zentachain --testnet-local --bob -d /tmp/bob --port 30334 --bootnodes '/ip4/127.0.0.1/tcp/30333/p2p/BOOTNODEID'
 ````
