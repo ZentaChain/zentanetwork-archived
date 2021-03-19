@@ -8,7 +8,7 @@ license = 'GPL-3.0'
 name = 'zentachain'
 repository = ''
 version = '2.0.0'
-default-run = "zenta"
+default-run = "zentachain"
 
 [[bin]]
 name = 'zenta'
