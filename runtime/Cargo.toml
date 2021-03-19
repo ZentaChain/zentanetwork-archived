@@ -3,7 +3,7 @@ authors = ['harunkacemer@zentachain.io, team@zentachain.io']
 edition = '2018'
 homepage = 'https://zentachain.io'
 license = 'GPL-3.0'
-name = 'zenta-runtime'
+name = 'zentachain-runtime'
 repository = ''
 version = '3.0.0'
 
