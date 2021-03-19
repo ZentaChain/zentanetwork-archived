@@ -3,7 +3,7 @@
 Zenta is a forkless Proof of Stake network for communication and data storage. 
 The construction of a fork-free network with Substrate enables Zentalk and Zentavault to make the perfect provision for Zentachain ecosystem. Zentameshnet allows Zentalk users to communicate offline 2 offline.
 
-### Build the $CHAIN
+## Build the $CHAIN
 
 Install
 ````
@@ -39,26 +39,26 @@ Bob
 ````
 ./target/release/zentachain --testnet-local --bob -d /tmp/bob --port 30334 --bootnodes '/ip4/127.0.0.1/tcp/30333/p2p/BOOTNODEID'
 ````
-### Dev-network
+## Dev-network
 Run single-node in development network
 
 ````
 $ ./target/release/zentachain --dev
 ````
 
-### Zajin-network (Alpha)
+## Zajin-network (Alpha)
 Run single-node in Zajin-network
 ````
 $ ./target/release/zentachain --zajin
  ````
  
-### Zikaron-network (Beta)
+## Zikaron-network (Beta)
 Run single-node in Zikaron-network
 ````
 $ ./target/release/zentachain --zikaron
 ````
 
-### Zentachain Main-network (Aleph-Network)
+## Zentachain Main-network (Aleph-Network)
 
 ````
 $ ./target/release/zentachain --mainnet
@@ -79,7 +79,7 @@ $ ./target/release/zentachain --help
 ### Status
 Active under development.
 
-### Advanced Introduction 
+## Advanced Introduction 
 For deeper insights into the Zentanetwork
 [DocHub](https://docs.zentachain.io)
 
