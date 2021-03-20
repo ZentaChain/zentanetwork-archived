@@ -11,20 +11,21 @@ version = '2.0.0'
 default-run = "zentachain"
 
 [[bin]]
-name = 'zenta'
+name = 'zentachain'
 
 [package.metadata.docs.rs]
 targets = ['x86_64-unknown-linux-gnu']
 
 [build-dependencies]
 substrate-build-script-utils = '3.0.0'
+vergen = '3.0.4'
 
 [dependencies]
 jsonrpc-core = '15.1.0'
 structopt = '0.3.8'
 
 # local dependencies
-zenta-runtime = { path = '../runtime', version = '2.0.0' }
+zenta-runtime = { path = '../runtime', version = '3.0.0' }
 
 # Substrate dependencies
 frame-benchmarking = '3.0.0'
@@ -36,7 +37,10 @@ sc-client-api = '3.0.0'
 sc-consensus = '0.9.0'
 sc-consensus-aura = '0.9.0'
 sc-executor = { features = ['wasmtime'], version = '0.9.0' }
+sc-consensus-babe = { version = '0.9.0' }
+sc-consensus-babe-rpc = { version = '0.9.0' }
 sc-finality-grandpa = '0.9.0'
+sc-finality-grandpa-rpc = '0.9.0'
 sc-rpc = '3.0.0'
 sc-rpc-api = '0.9.0'
 sc-service = { features = ['wasmtime'], version = '0.9.0' }
@@ -46,6 +50,7 @@ sp-block-builder = '3.0.0'
 sp-blockchain = '3.0.0'
 sp-consensus = '0.9.0'
 sp-consensus-aura = '0.9.0'
+sp-consensus-babe = { version = '0.9.0' }
 sp-core = '3.0.0'
 sp-finality-grandpa = '3.0.0'
 sp-inherents = '3.0.0'
