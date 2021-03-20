@@ -18,11 +18,9 @@ substrate-wasm-builder = '4.0.0'
 default-features = false
 features = ['derive']
 package = 'parity-scale-codec'
-version = '2.0.0'
+version = '2.0.1'
 
 [dependencies]
-pallet-staking-reward-curve = '2.0.0'
-bigint = '4.2.0'
 hex-literal = { optional = true, version = '0.3.1' }
 serde = { features = ['derive'], optional = true, version = '1.0.119' }
 
@@ -63,9 +61,9 @@ pallet-elections-phragmen = { default-features = false, version = '3.0.0' }
 pallet-treasury = { default-features = false, version = '3.0.0' }
 pallet-democracy = { default-features = false, version = '3.0.0' }
 pallet-membership = { default-features = false, version = '3.0.0' }
-pallet-finality-tracker = { default-features = false, version = '3.0.0' }
 pallet-babe= { default-features = false, version = '3.0.0' }
 pallet-staking = { default-features = false, version = '3.0.0' }
+pallet-staking-reward-curve = { version = '3.0.0', default-features = false }
 pallet-session = { default-features = false, version = '3.0.0' }
 pallet-authorship = { default-features = false, version = '3.0.0' }
 pallet-authority-discovery = { default-features = false, version = '3.0.0' }
