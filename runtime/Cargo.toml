@@ -4,7 +4,7 @@ edition = '2018'
 homepage = 'https://zentachain.io'
 license = 'GPL-3.0'
 name = 'zentachain-runtime'
-repository = ''
+repository = 'https://github.com/ZentaChain/Zentanetwork'
 version = '3.0.0'
 
 [package.metadata.docs.rs]
