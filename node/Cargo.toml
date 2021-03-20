@@ -1,12 +1,12 @@
 [package]
 authors = ['harunkacemer@zentachain.io, team@zentachain.io']
 build = 'build.rs'
-description = 'Zentachain is a forkless PoS blockchain for communication and data storage.'
+description = 'Zentanetwork is a forkless PoS blockchain for communication and data storage.'
 edition = '2018'
 homepage = 'https://zentachain.io'
 license = 'GPL-3.0'
 name = 'zentachain'
-repository = ''
+repository = 'https://github.com/ZentaChain/Zentanetwork'
 version = '3.0.0'
 default-run = "zentachain"
 
