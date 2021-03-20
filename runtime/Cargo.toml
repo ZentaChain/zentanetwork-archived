@@ -53,11 +53,10 @@ sp-transaction-pool = { default-features = false, version = '3.0.0' }
 sp-version = { default-features = false, version = '3.0.0' }
 sp-io = { default-features = false, version = '3.0.0' }
 sp-staking = { default-features = false, version = '3.0.0' }
-
-[dependencies.scheduler]
-default-features = false
-package = 'pallet-scheduler'
-version = '3.0.0'
+pallet-contracts = { default-features = false, version = '3.0.0' }
+pallet-contracts-primitives = { default-features = false, version = '3.0.0' }
+pallet-contracts-rpc-runtime-api = { default-features = false, version = '3.0.0' }
+pallet-scheduler = { default-features = false, version = '3.0.0' }
 
 [dependencies.collective]
 default-features = false
@@ -145,6 +144,10 @@ std = [
     'frame-support/std',
     'frame-system/std',
     'frame-system-rpc-runtime-api/std',
+    'pallet-contracts/std',
+    'pallet-contracts-primitives/std',
+    'pallet-contracts-rpc-runtime-api/std',
+    'pallet-scheduler/std',
     'pallet-balances/std',
     'pallet-grandpa/std',
     'pallet-randomness-collective-flip/std',
