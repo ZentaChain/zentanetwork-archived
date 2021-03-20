@@ -58,72 +58,20 @@ pallet-contracts-primitives = { default-features = false, version = '3.0.0' }
 pallet-contracts-rpc-runtime-api = { default-features = false, version = '3.0.0' }
 pallet-scheduler = { default-features = false, version = '3.0.0' }
 
-[dependencies.collective]
-default-features = false
-package = 'pallet-collective'
-version = '3.0.0'
+pallet-collective = { default-features = false, version = '3.0.0' }
+pallet-elections-phragmen = { default-features = false, version = '3.0.0' }
+pallet-treasury = { default-features = false, version = '3.0.0' }
+pallet-democracy = { default-features = false, version = '3.0.0' }
+pallet-membership = { default-features = false, version = '3.0.0' }
+pallet-finality-tracker = { default-features = false, version = '3.0.0' }
+pallet-babe= { default-features = false, version = '3.0.0' }
+pallet-staking = { default-features = false, version = '3.0.0' }
+pallet-session = { default-features = false, version = '3.0.0' }
+pallet-authorship = { default-features = false, version = '3.0.0' }
+pallet-authority-discovery = { default-features = false, version = '3.0.0' }
+pallet-im-online = { default-features = false, version = '3.0.0' }
+substrate-validator-set = { default-features = false, version = '3.0.0' }
 
-[dependencies.elections-phragmen]
-default-features = false
-package = 'pallet-elections-phragmen'
-version = '3.0.0'
-
-[dependencies.treasury]
-default-features = false
-package = 'pallet-treasury'
-version = '3.0.0'
-
-[dependencies.democracy]
-default-features = false
-package = 'pallet-democracy'
-version = '3.0.0'
-
-[dependencies.membership]
-default-features = false
-package = 'pallet-membership'
-version = '3.0.0'
-
-[dependencies.finality-tracker]
-default-features = false
-package = 'pallet-finality-tracker'
-version = '3.0.0'
-
-[dependencies.babe]
-default-features = false
-package = 'pallet-babe'
-version = '3.0.0'
-
-[dependencies.staking]
-default-features = false
-package = 'pallet-staking'
-version = '3.0.0'
-
-[dependencies.session]
-default-features = false
-package = 'pallet-session'
-version = '3.0.0'
-
-[dependencies.authorship]
-default-features = false
-package = 'pallet-authorship'
-version = '3.0.0'
-
-[dependencies.authority-discovery]
-default-features = false
-package = 'pallet-authority-discovery'
-version = '3.0.0'
-
-[dependencies.im-online]
-default-features = false
-package = 'pallet-im-online'
-version = '3.0.0'
-
-[dependencies.validator-set]
-default-features = false
-git = 'https://github.com/MVPWorkshop/substrate-validator-set'
-package = 'substrate-validator-set'
-branch = 'master'
-version = '0.2.0'
 
 [features]
 default = ['std']
