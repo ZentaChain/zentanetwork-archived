@@ -156,7 +156,7 @@ fn testnet_genesis(
 	initial_authorities: Vec<(AuraId, GrandpaId)>,
 	root_key: AccountId,
 	endowed_accounts: Vec<AccountId>,
-	_enable_println: bool,
+	enable_println: bool,
 ) -> GenesisConfig {
 	//Additional genesis variables
 
@@ -184,17 +184,17 @@ fn testnet_genesis(
 			members: vec![],
 			phantom: Default::default(),
 		}),
-	elections_phragmen: Some(ElectionsPhragmenConfig {
+		elections_phragmen: Some(ElectionsPhragmenConfig {
 			members: vec![],
 		}),
-	membership: Some(MembershipConfig {
+		membership: Some(MembershipConfig {
 			phantom: Default::default(),
 			members: Default::default(),
 		}),
-	babe: Some(BabeConfig {
+		babe: Some(BabeConfig {
 			authorities: vec![],
 		}),
-	staking: Some(StakingConfig {
+		staking: Some(StakingConfig {
 			canceled_payout: Default::default(),
 			force_era: Default::default(),
 			history_depth: Default::default(),
@@ -204,7 +204,7 @@ fn testnet_genesis(
 			validator_count: initial_authorities.len() as u32 * 2,
 			stakers: vec![],
 		}),
-	session: Some(SessionConfig {
+		session: Some(SessionConfig {
 			keys: initial_authorities.iter().map(|x| {
 				(
 					get_account_id_from_seed::<sr25519::Public>("Alice"),
@@ -216,11 +216,17 @@ fn testnet_genesis(
 				)
 			}).collect::<Vec<_>>(),
 		}),
-	im_online: Some(ImOnlineConfig {
+		im_online: Some(ImOnlineConfig {
 			keys: vec![],
 		}),
-	validator_set: Some(ValidatorSetConfig {
+		validator_set: Some(ValidatorSetConfig {
 			validators: vec![get_account_id_from_seed::<sr25519::Public>("Alice")],
 		}),
+		pallet_contracts: Some(ContractsConfig {
+                current_schedule: pallet_contracts::Schedule {
+                    enable_println,
+                    ..Default::default()
+            },
+        }),
 }
 }
