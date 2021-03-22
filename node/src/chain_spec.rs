@@ -1,28 +1,16 @@
 use sp_core::{Pair, Public, sr25519};
 use zentachain_runtime::{
 	AccountId, AuraConfig, BalancesConfig, GenesisConfig, GrandpaConfig,
-	SudoConfig, SystemConfig, WASM_BINARY, Signature, ContractsConfig
+	SudoConfig, SystemConfig, WASM_BINARY, Signature, ContractsConfig,
+	ValidatorSetConfig, ImOnlineConfig, SessionConfig, SessionKeys, StakingConfig, BabeConfig,
+	MembershipConfig, ElectionsPhragmenConfig, CollectiveConfig 
 };
 use sp_consensus_aura::sr25519::AuthorityId as AuraId;
 use sp_finality_grandpa::AuthorityId as GrandpaId;
 use sp_runtime::traits::{Verify, IdentifyAccount};
 use sc_service::ChainType;
-use sp_runtime::{Perbill};
-
-//Additional code
-
-use zentachain_runtime::{ValidatorSetConfig};
-use zentachain_runtime::{ImOnlineConfig};
-use zentachain_runtime::{SessionConfig};
-use zentachain_runtime::opaque::{SessionKeys};
-use zentachain_runtime::{StakingConfig};
-use zentachain_runtime::{BabeConfig};
-use zentachain_runtime::{MembershipConfig};
-use zentachain_runtime::{ElectionsPhragmenConfig};
-use zentachain_runtime::{CollectiveConfig};
 
 const DEFAULT_PROTOCOL_ID: &str = "CHAIN";
-
 
 // The URL for the telemetry server.
 const STAGING_TELEMETRY_URL: &str = "wss://telemetry.polkadot.io/submit/";
