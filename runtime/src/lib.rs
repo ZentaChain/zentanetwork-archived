@@ -221,7 +221,6 @@ parameter_types! {
 }
 
 // Configure FRAME pallets to include in runtime.
-
 impl frame_system::Config for Runtime {
 	type BaseCallFilter = ();
 	type BlockWeights = BlockWeights;
