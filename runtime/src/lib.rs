@@ -242,11 +242,11 @@ impl frame_system::Config for Runtime {
 	type SS58Prefix = SS58Prefix;
 }
 
-impl pallet_aura::Trait for Runtime {
+impl pallet_aura::Config for Runtime {
 	type AuthorityId = AuraId;
 }
 
-impl pallet_grandpa::Trait for Runtime {
+impl pallet_grandpa::Config for Runtime {
 	type Event = Event;
 	type Call = Call;
 	type KeyOwnerProofSystem = ();
@@ -291,7 +291,7 @@ parameter_types! {
 	pub const TransactionByteFee: Balance = 1;
 }
 
-impl pallet_transaction_payment::Trait for Runtime {
+impl pallet_transaction_payment::Config for Runtime {
 	type Currency = Balances;
 	type OnTransactionPayment = ();
 	type TransactionByteFee = TransactionByteFee;
@@ -329,7 +329,7 @@ impl pallet_sudo::Config for Runtime {
 	type Call = Call;
 }
 
-impl collective::Trait for Runtime { 
+impl collective::Config for Runtime { 
 	type Event = Event;
 	type WeightInfo = ();
 	type Origin = Origin;
@@ -349,7 +349,7 @@ parameter_types! {
 	pub const TermDuration: BlockNumber = 486_600;
 }
 
-impl elections_phragmen::Trait for Runtime { 
+impl elections_phragmen::Config for Runtime { 
 	type Event = Event;
 	type ModuleId = ElectionsPhragmenModuleId;
 	type Currency = Balances;
@@ -385,7 +385,7 @@ parameter_types! {
 	pub const MaximumReasonLength: u32 = 16384;
 }
 
-impl treasury::Trait for Runtime { 
+impl treasury::Config for Runtime { 
 	type Event = Event;
 	type ModuleId = TreasuryModuleId;
 	type Currency = Balances;
@@ -423,7 +423,7 @@ parameter_types! {
 	pub const MaxVotes: u32 = 100;
 }
 
-impl democracy::Trait for Runtime { 
+impl democracy::Config for Runtime { 
 	type Proposal = Call;
 	type Event = Event;
 	type Currency = Balances;
@@ -450,7 +450,7 @@ impl democracy::Trait for Runtime {
 	type WeightInfo = ();
 }
 
-impl membership::Trait for Runtime { 
+impl membership::Config for Runtime { 
 	type Event = Event;
 	type AddOrigin = EnsureRoot<AccountId>;
 	type RemoveOrigin = EnsureRoot<AccountId>;
@@ -477,7 +477,7 @@ parameter_types! {
 	pub const ExpectedBlockTime: u64 = 3000;
 }
 
-impl babe::Trait for Runtime { 
+impl babe::Config for Runtime { 
 	type EpochDuration = EpochDuration;
 	type ExpectedBlockTime = ExpectedBlockTime;
 	type EpochChangeTrigger = babe::ExternalTrigger;
@@ -506,7 +506,7 @@ parameter_types! {
 	pub const UnsignedPriorityStaking: TransactionPriority = TransactionPriority::max_value() / 2;
 }
 
-impl staking::Trait for Runtime { 
+impl staking::Config for Runtime { 
 	type Event = Event;
 	type Currency = Balances;
 	type Call = Call;
@@ -534,7 +534,7 @@ parameter_types! {
 	pub const DisabledValidatorsThreshold: Perbill = Perbill::from_percent(17);
 }
 
-impl session::Trait for Runtime { 
+impl session::Config for Runtime { 
 	type Event = Event;
 	type ValidatorId = AccountId;
 	type ValidatorIdOf = ();
@@ -551,14 +551,14 @@ parameter_types! {
 	pub const UncleGenerations: BlockNumber = 5;
 }
 
-impl authorship::Trait for Runtime { 
+impl authorship::Config for Runtime { 
 	type EventHandler = ();
 	type FilterUncle = ();
 	type FindAuthor = session::FindAccountFromAuthorIndex<Self, Babe>;
 	type UncleGenerations = UncleGenerations;
 }
 
-impl authority_discovery::Trait for Runtime { 
+impl authority_discovery::Config for Runtime { 
 }
 
 parameter_types! { 
@@ -566,7 +566,7 @@ parameter_types! {
 	pub const UnsignedPriorityImOnline: TransactionPriority = TransactionPriority::max_value();
 }
 
-impl im_online::Trait for Runtime { 
+impl im_online::Config for Runtime { 
 	type Event = Event;
 	type AuthorityId = ImOnlineId;
 	type WeightInfo = ();
@@ -577,7 +577,7 @@ impl im_online::Trait for Runtime {
 
 
 
-impl validator_set::Trait for Runtime { 
+impl validator_set::Config for Runtime { 
 	type Event = Event;
 }
 
@@ -779,7 +779,7 @@ impl_runtime_apis! {
 			use frame_benchmarking::{Benchmarking, BenchmarkBatch, add_benchmark, TrackedStorageKey};
 
 			use frame_system_benchmarking::Module as SystemBench;
-			impl frame_system_benchmarking::Trait for Runtime {}
+			impl frame_system_benchmarking::Config for Runtime {}
 
 			let whitelist: Vec<TrackedStorageKey> = vec![
 				// Block Number
