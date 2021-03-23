@@ -5,7 +5,6 @@ The construction of a fork-free network with Substrate enables Zentalk and Zenta
 
 ## Build the $CHAIN
 
-Install
 ````
 $ git clone https://github.com/ZentaChain/Zentanetwork
 ````
