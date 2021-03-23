@@ -1,5 +1,4 @@
 #![cfg_attr(not(feature = "std"), no_std)]
-// `construct_runtime!` does a lot of recursion and requires us to increase the limit to 256.
 #![recursion_limit="256"]
 
 // Make the WASM binary available.
@@ -49,7 +48,6 @@ impl<C> frame_system::offchain::SendTransactionTypes<C> for Runtime where Call: 
 mod weights;
 
 //Additional code
-
 use sp_runtime::MultiSigner;
 use im_online::sr25519::AuthorityId as ImOnlineId;
 
@@ -59,7 +57,6 @@ impl session::historical::Trait for Runtime {
 	type FullIdentification = staking::Exposure<AccountId, Balance>;
 	type FullIdentificationOf = staking::ExposureOf<Runtime>;
 }
-
 
 use sp_runtime::curve::PiecewiseLinear;
 pallet_staking_reward_curve::build! {
@@ -106,9 +103,7 @@ pub type DigestItem = generic::DigestItem<Hash>;
 /// to even the core data structures.
 pub mod opaque {
 	use super::*;
-
 	pub use sp_runtime::OpaqueExtrinsic as UncheckedExtrinsic;
-
 	/// Opaque block header type.
 	pub type Header = generic::Header<BlockNumber, BlakeTwo256>;
 	/// Opaque block type.
@@ -136,7 +131,6 @@ pub const VERSION: RuntimeVersion = RuntimeVersion {
 
 pub const MILLISECS_PER_BLOCK: u64 = 6000;
 pub const SLOT_DURATION: u64 = MILLISECS_PER_BLOCK;
-
 
 // Time is measured by number of blocks.
 pub const MINUTES: BlockNumber = 60_000 / (MILLISECS_PER_BLOCK as BlockNumber);
@@ -256,8 +250,7 @@ impl pallet_grandpa::Trait for Runtime {
 	type Event = Event;
 	type Call = Call;
 	type KeyOwnerProofSystem = ();
-	type KeyOwnerProof =
-		<Self::KeyOwnerProofSystem as KeyOwnerProofSystem<(KeyTypeId, GrandpaId)>>::Proof;
+	type KeyOwnerProof = <Self::KeyOwnerProofSystem as KeyOwnerProofSystem<(KeyTypeId, GrandpaId)>>::Proof;
 	type KeyOwnerIdentification = <Self::KeyOwnerProofSystem as KeyOwnerProofSystem<(
 		KeyTypeId,
 		GrandpaId,
@@ -270,8 +263,7 @@ parameter_types! {
 	pub const MinimumPeriod: u64 = SLOT_DURATION / 2;
 }
 
-impl pallet_timestamp::Trait for Runtime {
-	/// A timestamp: milliseconds since the unix epoch.
+impl pallet_timestamp::Config for Runtime {
 	type Moment = u64;
 	type OnTimestampSet = Aura;
 	type MinimumPeriod = MinimumPeriod;
@@ -307,11 +299,6 @@ impl pallet_transaction_payment::Trait for Runtime {
 	type FeeMultiplierUpdate = ();
 }
 
-impl pallet_sudo::Config for Runtime {
-	type Event = Event;
-	type Call = Call;
-}
-
 // Define the types required by the Scheduler pallet.
 parameter_types! {
     pub MaximumSchedulerWeight: Weight = Perbill::from_percent(80) * BlockWeights::get().max_block;
@@ -334,6 +321,12 @@ parameter_types! {
 	pub const MaxProposals: u32 = 100;
 	pub const MotionDuration: BlockNumber = 28_800;
 	pub const CouncilMaxMembers: u32 = 100;
+}
+
+
+impl pallet_sudo::Config for Runtime {
+	type Event = Event;
+	type Call = Call;
 }
 
 impl collective::Trait for Runtime { 
