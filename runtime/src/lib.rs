@@ -46,8 +46,6 @@ impl<C> frame_system::offchain::SendTransactionTypes<C> for Runtime where Call: 
 	type OverarchingCall = Call;
 }
 
-mod weights;
-
 //Additional code
 use sp_runtime::MultiSigner;
 use im_online::sr25519::AuthorityId as ImOnlineId;
