@@ -19,6 +19,7 @@ use sp_consensus_aura::sr25519::AuthorityId as AuraId;
 use pallet_grandpa::{AuthorityId as GrandpaId, AuthorityList as GrandpaAuthorityList};
 use pallet_grandpa::fg_primitives;
 use sp_version::RuntimeVersion;
+pub use node_primitives::{AccountId, Balance, BlockNumber, Index, Signature};
 #[cfg(feature = "std")]
 use sp_version::NativeVersion;
 
@@ -70,26 +71,15 @@ pallet_staking_reward_curve::build! {
 	);
 }
 
+// Weights used in the runtime.
+mod weights;
 
-/// An index to a block.
-pub type BlockNumber = u32;
-
-/// Alias to 512-bit hash when used in the context of a transaction signature on the chain.
-pub type Signature = MultiSignature;
-
-/// Some way of identifying an account on the chain. We intentionally make it equivalent
-/// to the public key of our transaction signing scheme.
-pub type AccountId = <<Signature as Verify>::Signer as IdentifyAccount>::AccountId;
+/// Import the template pallet.
+pub use pallet_template;
 
 /// The type for looking up accounts. We don't expect more than 4 billion of them, but you
 /// never know...
 pub type AccountIndex = u32;
-
-/// Balance of an account.
-pub type Balance = u128;
-
-/// Index of a transaction in the chain.
-pub type Index = u32;
 
 /// A hash of some data used by the chain.
 pub type Hash = sp_core::H256;
