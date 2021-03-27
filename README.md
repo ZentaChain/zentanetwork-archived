@@ -3,8 +3,6 @@
 Zentanetwork is a forkless Proof of Stake(PoS) network for communication and data storage. 
 The construction of a fork-free network with Substrate enables Zentalk and Zentavault to make the perfect provision for Zentachain ecosystem. Zentameshnet allows Zentalk users to communicate offline 2 offline.
 
-More details about Zentanetwork [here](https://docs.zentachain.io/zentanetwork)
-
 ## Build the $CHAIN
 
 ````
@@ -82,7 +80,7 @@ Active under development.
 
 ## Advanced Introduction 
 For deeper insights into the Zentanetwork
-[DocHub](https://docs.zentachain.io)
+[Zentantwork Docs](https://docs.zentachain.io/zentanetwork)
 
 ## License
 
