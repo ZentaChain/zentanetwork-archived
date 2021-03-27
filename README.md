@@ -79,8 +79,7 @@ $ ./target/release/zentachain --help
 Active under development.
 
 ## Advanced Introduction 
-For deeper insights into the Zentanetwork
-[Zentantwork Docs](https://docs.zentachain.io/zentanetwork)
+For deeper insights into the [Zentantwork Docs](https://docs.zentachain.io/zentanetwork)
 
 ## License
 
