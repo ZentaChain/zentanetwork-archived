@@ -8,8 +8,8 @@ use zentachain_runtime::{
 use sp_consensus_aura::sr25519::AuthorityId as AuraId;
 use sp_finality_grandpa::AuthorityId as GrandpaId;
 use sp_runtime::traits::{Verify, IdentifyAccount};
-use hex_literal::hex;
 use sc_service::{ChainType, Properties};
+use zentachain_runtime::constants::currency::CHAINS;
 
 // The URL for the telemetry server.
 // const STAGING_TELEMETRY_URL: &str = "wss://telemetry.polkadot.io/submit/";
