@@ -23,6 +23,7 @@ vergen = '3.0.4'
 [dependencies]
 jsonrpc-core = '15.1.0'
 structopt = '0.3.8'
+hex-literal = "0.3.1"
 
 # local dependencies
 zenta-runtime = { path = '../runtime', version = '3.0.0' }
@@ -57,6 +58,8 @@ sp-inherents = '3.0.0'
 sp-runtime = '3.0.0'
 sp-transaction-pool = '3.0.0'
 substrate-frame-rpc-system = '3.0.0'
+pallet-contracts  = '3.0.0'
+pallet-contracts-rpc  = '3.0.0'
 
 [features]
 default = []
