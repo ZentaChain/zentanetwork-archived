@@ -1,4 +1,4 @@
-use sp_core::{Pair, Public, sr25519};
+use sp_core::{crypto::UncheckedInto, sr25519, Pair, Public};
 use zentachain_runtime::{
 	AccountId, AuraConfig, BalancesConfig, GenesisConfig, GrandpaConfig,
 	SudoConfig, SystemConfig, WASM_BINARY, Signature, ContractsConfig,
@@ -10,6 +10,7 @@ use sp_finality_grandpa::AuthorityId as GrandpaId;
 use sp_runtime::traits::{Verify, IdentifyAccount};
 use sc_service::{ChainType, Properties};
 use zentachain_runtime::constants::currency::CHAINS;
+use hex_literal::hex;
 
 // The URL for the telemetry server.
 // const STAGING_TELEMETRY_URL: &str = "wss://telemetry.polkadot.io/submit/";
@@ -130,12 +131,57 @@ pub fn local_testnet_config() -> Result<ChainSpec, String> {
 }
 
 
-
+// Zajin-net PoA
 fn session_keys(
 	aura: AuraId,
 	grandpa: GrandpaId,
 ) -> SessionKeys {
 	SessionKeys { aura, grandpa }
+}
+
+pub fn zajin_testnet_config() -> Result<ChainSpec, String> {
+    let wasm_binary = WASM_BINARY.ok_or_else(|| "Development wasm binary not available".to_string())?;
+
+    Ok(ChainSpec::from_genesis(
+        // Name
+        "zentachain",
+        // ID
+        "zajin_testnet",
+        ChainType::Live,
+        move || {
+            testnet_genesis(
+                wasm_binary,
+                // Initial PoA authorities
+                vec![
+                    (	// 5FHWaxnsx6b4iBVZpGyS7TCWNuewnU23RShqf13vRuDkzYKb
+                        hex!["8e78f3225727510e1b240fc0832b8cd46ce858db168c5e454900608b25ee7957"].unchecked_into(), // AuraId SR25519 //1//aura
+			// 5HqKu9Xt9ez3NT4Re5M2QK1G7BwjyFANW7sVRsS3Pix23hGb
+                        hex!["ff354bb6467687851c311924e7a1881ee96e45856e6190d84a7c0589c5650ca6"].unchecked_into(), // GrandpaId ED25519 //1//grandpa
+                    ),
+                    (	// 5Exb5Ngv2Ai2jsqeeiKiKjg8jKtV5Wt3oNiouUc4sZM4aYKS
+                        hex!["800a66ba8d5727c58363a6cdff70958ec266492a6b786da1377a158779849a74"].unchecked_into(), // AuraId SR25519 //2//aura
+			// 5EgzCJrov65KSM2FrXBjuwq284jq8ukgYQGEP2EDd5X29d6h
+                        hex!["74244d5a760dae039ceb2d626ce0e1e4ecc4d9e42f759a8d7168c0af514fb73c"].unchecked_into(), // GrandpaId ED25519 //2//grandpa
+                    ),
+                ],
+		 	// 5EJMmxL26AuD5w6AkDfr2zRgfaLCQWVYX5QUFdoJ7Vp2pZhk
+                hex!["62e24d8f32504fd9c050b25667bc541c02809f2b4b66fcbc7daeb3025e93924e"].into(), // Sudo Account
+                vec![hex!["62e24d8f32504fd9c050b25667bc541c02809f2b4b66fcbc7daeb3025e93924e"].into(), // Funded Account
+                ],
+                true,
+            )
+        },
+        // Bootnodes
+        vec![],
+        // Telemetry
+        None,
+        // Protocol ID
+        Some(DEFAULT_PROTOCOL_ID),
+        // Properties
+        Some(zentachain_properties()),
+        // Extensions
+        None,
+    ))
 }
 
 /// Configure initial storage state for FRAME modules.
@@ -216,5 +262,5 @@ fn testnet_genesis(
                     ..Default::default()
             },
         }),
-}
+    }
 }
