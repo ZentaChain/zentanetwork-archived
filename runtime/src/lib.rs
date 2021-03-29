@@ -792,7 +792,8 @@ impl_runtime_apis! {
 			add_benchmark!(params, batches, pallet_offences, OffencesBench::<Runtime>);
 			add_benchmark!(params, batches, pallet_scheduler, Scheduler);
 			add_benchmark!(params, batches, pallet_session, SessionBench::<Runtime>);
-			add_benchmark!(params, batches, pallet_staking, Staking);			
+			add_benchmark!(params, batches, pallet_staking, Staking);
+			add_benchmark!(params, batches, pallet_contracts, Contracts);
 
 			if batches.is_empty() { return Err("Benchmark not found for this pallet.".into()) }
 			Ok(batches)
