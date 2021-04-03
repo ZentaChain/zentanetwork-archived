@@ -32,11 +32,11 @@ $ ./target/release/zentachain --testnet-local
 Alice
 
 ````
-$ ./target/release/zentachain --testnet-local --alice -d /tmp/alice
+$ ./target/release/zentachain --chain local --alice /tmp/alice
 ````
 Bob
 ````
-./target/release/zentachain --testnet-local --bob -d /tmp/bob --port 30334 --bootnodes '/ip4/127.0.0.1/tcp/30333/p2p/BOOTNODEID'
+./target/release/zentachain chain local --bob /tmp/bob --port 30334 --bootnodes '/ip4/127.0.0.1/tcp/30333/p2p/BOOTNODEID'
 ````
 ## Dev-network
 Run single-node in development network
