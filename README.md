@@ -1,6 +1,6 @@
 # :zap: Zentanetwork :zap:
 
-Zentanetwork is a forkless Proof of Stake(PoS) network for communication and data storage. 
+Zentanetwork is a forkless Proof of Stake(PoS) consensus for communication and data storage. 
 The construction of a fork-free network with Substrate enables Zentalk and Zentavault to make the perfect provision for Zentachain ecosystem.
 
 ## Status
