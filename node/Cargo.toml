@@ -36,7 +36,6 @@ sc-basic-authorship = '0.9.0'
 sc-cli = { features = ['wasmtime'], version = '0.9.0' }
 sc-client-api = '3.0.0'
 sc-consensus = '0.9.0'
-sc-consensus-aura = '0.9.0'
 sc-executor = { features = ['wasmtime'], version = '0.9.0' }
 sc-consensus-babe = { version = '0.9.0' }
 sc-consensus-babe-rpc = { version = '0.9.0' }
@@ -50,7 +49,6 @@ sp-api = '3.0.0'
 sp-block-builder = '3.0.0'
 sp-blockchain = '3.0.0'
 sp-consensus = '0.9.0'
-sp-consensus-aura = '0.9.0'
 sp-consensus-babe = { version = '0.9.0' }
 sp-core = '3.0.0'
 sp-finality-grandpa = '3.0.0'
