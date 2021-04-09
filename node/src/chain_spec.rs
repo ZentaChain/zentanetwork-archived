@@ -16,8 +16,9 @@ use hex_literal::hex;
 // const STAGING_TELEMETRY_URL: &str = "wss://telemetry.polkadot.io/submit/";
 const DEFAULT_PROTOCOL_ID: &str = "CHAIN";
 
-/// Specialized `ChainSpec`. This is a specialization of the general Substrate ChainSpec type.
-pub type ChainSpec = sc_service::GenericChainSpec<GenesisConfig>;
+/// Specialized `ZentachainChainSpec`. This is a specialization of the general zentachain ChainSpec type.
+pub type ZentachainChainSpec = sc_service::GenericChainSpec<GenesisConfig>;
+type AccountPublic = <Signature as Verify>::Signer;
 
 /// Generate a crypto pair from seed.
 pub fn get_from_seed<TPublic: Public>(seed: &str) -> <TPublic::Pair as Pair>::Public {
@@ -25,8 +26,6 @@ pub fn get_from_seed<TPublic: Public>(seed: &str) -> <TPublic::Pair as Pair>::Pu
 		.expect("static values are valid; qed")
 		.public()
 }
-
-type AccountPublic = <Signature as Verify>::Signer;
 
 /// Generate an account ID from seed.
 pub fn get_account_id_from_seed<TPublic: Public>(seed: &str) -> AccountId where
@@ -43,10 +42,10 @@ pub fn authority_keys_from_seed(s: &str) -> (AuraId, GrandpaId) {
 	)
 }
 
-pub fn development_config() -> Result<ChainSpec, String> {
+pub fn development_config() -> Result<ZentachainChainSpec, String> {
 	let wasm_binary = WASM_BINARY.ok_or("Development wasm binary not available".to_string())?;
 
-	Ok(ChainSpec::from_genesis(
+	Ok(ZentachainChainSpec::from_genesis(
 		// Name
 		"Development",
 		// ID
@@ -82,10 +81,10 @@ pub fn development_config() -> Result<ChainSpec, String> {
 	))
 }
 
-pub fn local_testnet_config() -> Result<ChainSpec, String> {
+pub fn local_testnet_config() -> Result<ZentachainChainSpec, String> {
 	let wasm_binary = WASM_BINARY.ok_or("Development wasm binary not available".to_string())?;
 
-	Ok(ChainSpec::from_genesis(
+	Ok(ZentachainChainSpec::from_genesis(
 		// Name
 		"Local Testnet",
 		// ID
@@ -131,7 +130,7 @@ pub fn local_testnet_config() -> Result<ChainSpec, String> {
 }
 
 
-// Zajin-net PoA
+// Zajin PoA
 fn session_keys(
 	aura: AuraId,
 	grandpa: GrandpaId,
@@ -139,10 +138,10 @@ fn session_keys(
 	SessionKeys { aura, grandpa }
 }
 
-pub fn zajin_testnet_config() -> Result<ChainSpec, String> {
-    let wasm_binary = WASM_BINARY.ok_or_else(|| "Development wasm binary not available".to_string())?;
+pub fn zajin_staging_config() -> Result<ZentachainChainSpec, String> {
+    let wasm_binary = WASM_BINARY.ok_or_else(|| "Zajin wasm binary not available".to_string())?;
 
-    Ok(ChainSpec::from_genesis(
+    Ok(ZentachainChainSpec::from_genesis(
         // Name
         "zentachain",
         // ID
@@ -182,6 +181,10 @@ pub fn zajin_testnet_config() -> Result<ChainSpec, String> {
         // Extensions
         None,
     ))
+}
+
+pub fn zajin_testnet_config() -> Result<ZentachainChainSpec, String> {
+    ZentachainChainSpec::from_json_bytes(&include_bytes!("../../service/zajin-spec.json")[..])
 }
 
 /// Configure initial storage state for FRAME modules.
