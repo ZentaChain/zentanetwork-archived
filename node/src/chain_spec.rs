@@ -187,6 +187,28 @@ pub fn zajin_testnet_config() -> Result<ZentachainChainSpec, String> {
     ZentachainChainSpec::from_json_bytes(&include_bytes!("../../service/zajin-spec.json")[..])
 }
 
+/// Zajin Staging
+pub fn zajin_staging_config() -> Result<ZentachainChainSpec, String> {
+    let wasm_binary = WASM_BINARY.ok_or("Zajin wasm binary not available")?;
+
+    Ok(ZentachainChainSpec::from_genesis(
+        "Zentachain Zajin",
+        "zajin_staging",
+        ChainType::Live,
+        move || zajin_staging_testnet_config_genesis(wasm_binary),
+        // Bootnodes
+        vec![],
+        // Telemetry
+        None,
+        // Protocol ID
+        Some(DEFAULT_PROTOCOL_ID),
+        // Properties
+        Some(zentachain_properties()),
+        // Extensions
+        None,
+    ))
+}
+
 /// Configure initial storage state for FRAME modules.
 fn testnet_genesis(
 	wasm_binary: &[u8],
