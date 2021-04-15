@@ -15,7 +15,6 @@ use sp_runtime::traits::{
 	BlakeTwo256, Block as BlockT, IdentityLookup, Verify, IdentifyAccount, NumberFor, Saturating,
 };
 use sp_api::impl_runtime_apis;
-use sp_consensus_aura::sr25519::AuthorityId as AuraId;
 use pallet_grandpa::{AuthorityId as GrandpaId, AuthorityList as GrandpaAuthorityList};
 use pallet_grandpa::fg_primitives;
 use sp_version::RuntimeVersion;
@@ -101,8 +100,10 @@ pub mod opaque {
 
 	impl_opaque_keys! {
 		pub struct SessionKeys {
-			pub aura: Aura,
 			pub grandpa: Grandpa,
+			pub babe: Babe,
+			pub im_online: ImOnline,
+			pub authority_discovery: AuthorityDiscovery,
 		}
 	}
 }
@@ -582,7 +583,7 @@ construct_runtime!(
 		Democracy: democracy::{Module, Call, Storage, Event<T> },
 		Membership: membership::{Module, Call, Storage, Event<T>, Config<T> },
 		FinalityTracker: finality_tracker::{Module, Call, Storage },
-		Babe: babe::{Module, Call, Storage, Config, Inherent, ValidateUnsigned },
+		Babe: babe::{Module, Call, Storage, Config, Inherent, ValidateUnsigned},
 		Staking: staking::{Module, Call, Config<T>, Storage, Event<T>, ValidateUnsigned },
 		Session: session::{Module, Call, Storage, Event, Config<T> },
 		Authorship: authorship::{Module, Call, Storage, Inherent },
