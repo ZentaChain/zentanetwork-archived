@@ -1,11 +1,11 @@
 use sp_core::{crypto::UncheckedInto, sr25519, Pair, Public};
 use zentachain_runtime::{
-	AccountId, AuraConfig, BalancesConfig, GenesisConfig, GrandpaConfig,
+	AccountId, BalancesConfig, GenesisConfig, GrandpaConfig,
 	SudoConfig, SystemConfig, WASM_BINARY, Signature, ContractsConfig,
 	ValidatorSetConfig, ImOnlineConfig, SessionConfig, SessionKeys, StakingConfig, BabeConfig,
 	MembershipConfig, ElectionsPhragmenConfig, CollectiveConfig 
 };
-use sp_consensus_aura::sr25519::AuthorityId as AuraId;
+use sp_consensus_babe::AuthorityId as BabeId;
 use sp_finality_grandpa::AuthorityId as GrandpaId;
 use sp_runtime::traits::{Verify, IdentifyAccount};
 use sc_service::{ChainType, Properties};
@@ -32,14 +32,6 @@ pub fn get_account_id_from_seed<TPublic: Public>(seed: &str) -> AccountId where
 	AccountPublic: From<<TPublic::Pair as Pair>::Public>
 {
 	AccountPublic::from(get_from_seed::<TPublic>(seed)).into_account()
-}
-
-/// Generate an Aura authority key.
-pub fn authority_keys_from_seed(s: &str) -> (AuraId, GrandpaId) {
-	(
-		get_from_seed::<AuraId>(s),
-		get_from_seed::<GrandpaId>(s),
-	)
 }
 
 pub fn development_config() -> Result<ZentachainChainSpec, String> {
@@ -228,9 +220,6 @@ fn testnet_genesis(
 		pallet_balances: Some(BalancesConfig {
 			// Configure endowed accounts with initial balance of 1 << 60.
 			balances: endowed_accounts.iter().cloned().map(|k|(k, 1 << 60)).collect(),
-		}),
-		pallet_aura: Some(AuraConfig {
-			authorities: vec![],
 		}),
 		pallet_grandpa: Some(GrandpaConfig {
 			authorities: vec![],
