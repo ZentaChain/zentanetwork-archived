@@ -122,14 +122,6 @@ pub fn local_testnet_config() -> Result<ZentachainChainSpec, String> {
 }
 
 
-// Zajin PoA
-fn session_keys(
-	aura: AuraId,
-	grandpa: GrandpaId,
-) -> SessionKeys {
-	SessionKeys { aura, grandpa }
-}
-
 pub fn zajin_staging_config() -> Result<ZentachainChainSpec, String> {
     let wasm_binary = WASM_BINARY.ok_or_else(|| "Zajin wasm binary not available".to_string())?;
 
