@@ -7,10 +7,25 @@ use zentachain_runtime::{
 };
 use sp_consensus_babe::AuthorityId as BabeId;
 use sp_finality_grandpa::AuthorityId as GrandpaId;
+use sp_authority_discovery::AuthorityId as AuthorityDiscoveryId;
 use sp_runtime::traits::{Verify, IdentifyAccount};
 use sc_service::{ChainType, Properties};
 use zentachain_runtime::constants::currency::CHAINS;
 use hex_literal::hex;
+
+fn session_keys(
+    grandpa: GrandpaId,
+    babe: BabeId,
+    im_online: ImOnlineId,
+    authority_discovery: AuthorityDiscoveryId,
+) -> SessionKeys {
+    SessionKeys {
+        grandpa,
+        babe,
+        im_online,
+        authority_discovery,
+    }
+}
 
 // The URL for the telemetry server.
 // const STAGING_TELEMETRY_URL: &str = "wss://telemetry.polkadot.io/submit/";
