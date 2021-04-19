@@ -71,6 +71,7 @@ pallet-authorship = { default-features = false, version = '3.0.0' }
 pallet-authority-discovery = { default-features = false, version = '3.0.0' }
 pallet-im-online = { default-features = false, version = '3.0.0' }
 substrate-validator-set = { default-features = false, version = '3.0.0' }
+pallet-authority-discovery = { default-features = false, version = '3.0.0' }
 
 [features]
 default = ['std']
@@ -130,4 +131,5 @@ std = [
     'authority-discovery/std',
     'im-online/std',
     'validator-set/std',
+    "pallet-authority-discovery/std",
 ]
