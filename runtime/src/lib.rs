@@ -223,10 +223,6 @@ impl frame_system::Config for Runtime {
 	type SS58Prefix = SS58Prefix;
 }
 
-impl pallet_aura::Config for Runtime {
-	type AuthorityId = AuraId;
-}
-
 impl pallet_grandpa::Config for Runtime {
 	type Event = Event;
 	type Call = Call;
@@ -246,7 +242,7 @@ parameter_types! {
 
 impl pallet_timestamp::Config for Runtime {
 	type Moment = u64;
-	type OnTimestampSet = Aura;
+	type OnTimestampSet = babe;
 	type MinimumPeriod = MinimumPeriod;
 	type WeightInfo = weights::pallet_timestamp::WeightInfo<Runtime>;
 }
@@ -685,16 +681,6 @@ impl_runtime_apis! {
 	impl sp_offchain::OffchainWorkerApi<Block> for Runtime {
 		fn offchain_worker(header: &<Block as BlockT>::Header) {
 			Executive::offchain_worker(header)
-		}
-	}
-
-	impl sp_consensus_aura::AuraApi<Block, AuraId> for Runtime {
-		fn slot_duration() -> u64 {
-			Aura::slot_duration()
-		}
-
-		fn authorities() -> Vec<AuraId> {
-			Aura::authorities()
 		}
 	}
 
