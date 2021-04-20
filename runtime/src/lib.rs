@@ -50,7 +50,10 @@ impl<C> frame_system::offchain::SendTransactionTypes<C> for Runtime where Call: 
 //Additional code
 use sp_runtime::MultiSigner;
 use im_online::sr25519::AuthorityId as ImOnlineId;
+use pallet_session::historical as session_historical;
 
+// Weights used in the runtime.
+mod weights;
 
 use sp_runtime::traits::{ OpaqueKeys };
 impl session::historical::Trait for Runtime {
@@ -69,12 +72,6 @@ pallet_staking_reward_curve::build! {
 		test_precision: 0_005_000,
 	);
 }
-
-// Weights used in the runtime.
-mod weights;
-
-/// Import the template pallet.
-pub use pallet_template;
 
 /// The type for looking up accounts. We don't expect more than 4 billion of them, but you
 /// never know...
@@ -553,7 +550,6 @@ impl im_online::Config for Runtime {
 impl validator_set::Config for Runtime { 
 	type Event = Event;
 }
-
 
 construct_runtime!(
 	pub enum Runtime where
