@@ -502,25 +502,26 @@ impl staking::Config for Runtime {
 	type WeightInfo = ();
 }
 
-parameter_types! { 
+parameter_types! {
 	pub const DisabledValidatorsThreshold: Perbill = Perbill::from_percent(17);
 }
 
-impl session::Config for Runtime { 
+impl pallet_session::Config for Runtime {
 	type Event = Event;
 	type ValidatorId = AccountId;
-	type ValidatorIdOf = ();
+	type ValidatorIdOf = pallet_staking::StashOf<Self>;
 	type ShouldEndSession = Babe;
 	type NextSessionRotation = Babe;
-	type SessionManager = ();
-	type SessionHandler = <opaque::SessionKeys as OpaqueKeys>::KeyTypeIdProviders;
-	type Keys = opaque::SessionKeys;
+	type SessionManager = pallet_session::historical::NoteHistoricalRoot<Self, Staking>;
+	type SessionHandler = <SessionKeys as OpaqueKeys>::KeyTypeIdProviders;
+	type Keys = SessionKeys;
 	type DisabledValidatorsThreshold = DisabledValidatorsThreshold;
-	type WeightInfo = ();
+	type WeightInfo = weights::pallet_session::WeightInfo<Runtime>;
 }
 
-parameter_types! { 
-	pub const UncleGenerations: BlockNumber = 5;
+impl pallet_session::historical::Config for Runtime {
+	type FullIdentification = pallet_staking::Exposure<AccountId, Balance>;
+	type FullIdentificationOf = pallet_staking::ExposureOf<Runtime>;
 }
 
 impl authorship::Config for Runtime { 
@@ -572,7 +573,7 @@ construct_runtime!(
 		Membership: membership::{Module, Call, Storage, Event<T>, Config<T> },
 		Babe: babe::{Module, Call, Storage, Config, Inherent, ValidateUnsigned},
 		Staking: staking::{Module, Call, Config<T>, Storage, Event<T>, ValidateUnsigned },
-		Session: session::{Module, Call, Storage, Event, Config<T> },
+		Session: pallet_session::{Pallet, Call, Storage, Event, Config<T>},
 		Authorship: authorship::{Module, Call, Storage, Inherent },
 		AuthorityDiscovery: authority_discovery::{Module, Call, Storage },
 		ImOnline: im_online::{Module, Call, Storage, Event<T>, ValidateUnsigned, Config<T> },
