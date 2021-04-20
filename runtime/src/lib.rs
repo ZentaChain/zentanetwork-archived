@@ -18,6 +18,8 @@ use sp_api::impl_runtime_apis;
 use pallet_grandpa::{AuthorityId as GrandpaId, AuthorityList as GrandpaAuthorityList};
 use pallet_grandpa::fg_primitives;
 use sp_version::RuntimeVersion;
+use sp_core::u32_trait::{_1, _2, _3, _5};
+use sp_core::OpaqueMetadata;
 pub use node_primitives::{AccountId, Balance, BlockNumber, Index, Signature};
 #[cfg(feature = "std")]
 use sp_version::NativeVersion;
@@ -400,7 +402,7 @@ parameter_types! {
 	pub const MaxVotes: u32 = 100;
 }
 
-impl democracy::Config for Runtime { 
+impl democracy::Config for Runtime {
 	type Proposal = Call;
 	type Event = Event;
 	type Currency = Balances;
@@ -438,36 +440,32 @@ impl membership::Config for Runtime {
 	type MembershipInitialized = ();
 }
 
-parameter_types! { 
-	pub const WindowSize: BlockNumber = 101;
-	pub const ReportLatency: BlockNumber = 1000;
+parameter_types! {
+	pub const EpochDuration: u64 = EPOCH_DURATION_IN_BLOCKS as u64;
+	pub const ExpectedBlockTime: Moment = MILLISECS_PER_BLOCK;
+	pub const ReportLongevity: u64 =
+		BondingDuration::get() as u64 * SessionsPerEra::get() as u64 * EpochDuration::get();
 }
 
-impl finality_tracker::Trait for Runtime { 
-	type OnFinalizationStalled = ();
-	type WindowSize = WindowSize;
-	type ReportLatency = ReportLatency;
-}
-
-parameter_types! { 
-	pub const EpochDuration: u64 = 200;
-	pub const ExpectedBlockTime: u64 = 3000;
-}
-
-impl babe::Config for Runtime { 
+// BABE Pallet
+impl pallet_babe::Config for Runtime {
 	type EpochDuration = EpochDuration;
 	type ExpectedBlockTime = ExpectedBlockTime;
-	type EpochChangeTrigger = babe::ExternalTrigger;
-	type KeyOwnerProofSystem = ();
+	// session module is the trigger
+	type EpochChangeTrigger = pallet_babe::ExternalTrigger;
+	type KeyOwnerProofSystem = Historical;
 	type KeyOwnerProof = <Self::KeyOwnerProofSystem as KeyOwnerProofSystem<(
 		KeyTypeId,
-		babe::AuthorityId,
+		pallet_babe::AuthorityId,
 	)>>::Proof;
+
 	type KeyOwnerIdentification = <Self::KeyOwnerProofSystem as KeyOwnerProofSystem<(
 		KeyTypeId,
-		babe::AuthorityId,
+		pallet_babe::AuthorityId,
 	)>>::IdentificationTuple;
-	type HandleEquivocation = ();
+	
+	type HandleEquivocation =
+		pallet_babe::EquivocationHandler<Self::KeyOwnerIdentification, Offences, ReportLongevity>;
 	type WeightInfo = ();
 }
 
@@ -552,8 +550,6 @@ impl im_online::Config for Runtime {
 	type UnsignedPriority = UnsignedPriorityImOnline;
 }
 
-
-
 impl validator_set::Config for Runtime { 
 	type Event = Event;
 }
@@ -578,7 +574,6 @@ construct_runtime!(
 		Treasury: treasury::{Module, Call, Storage, Event<T> },
 		Democracy: democracy::{Module, Call, Storage, Event<T> },
 		Membership: membership::{Module, Call, Storage, Event<T>, Config<T> },
-		FinalityTracker: finality_tracker::{Module, Call, Storage },
 		Babe: babe::{Module, Call, Storage, Config, Inherent, ValidateUnsigned},
 		Staking: staking::{Module, Call, Config<T>, Storage, Event<T>, ValidateUnsigned },
 		Session: session::{Module, Call, Storage, Event, Config<T> },
