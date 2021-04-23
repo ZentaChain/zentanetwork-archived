@@ -53,17 +53,11 @@ Run single-node in Zajin-network
 ````
 $ ./target/release/zentachain --zajin
  ````
- 
-## Zikaron-network (Beta)
-Run single-node in Zikaron-network
+
+## Zentachain Main-network (Zikaron-network)
+
 ````
 $ ./target/release/zentachain --zikaron
-````
-
-## Zentachain Main-network (Aleph-Network)
-
-````
-$ ./target/release/zentachain --mainnet
 ````
 
 ### Purge DB
