@@ -4,7 +4,7 @@ Zentanetwork is a forkless Proof of Stake(PoS) consensus for communication and d
 The construction of a forkless network enables Zentalk and Zentavault to make the perfect provision for Zentachain ecosystem.
 
 ## Status
-Active under development.
+Under active development.
 
 ## Build the $CHAIN
 
