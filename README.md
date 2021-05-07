@@ -71,6 +71,9 @@ For a breakdown of substrate command-line options
 ````
 $ ./target/release/zentachain --help
 ````
+### M1 Machine - Build Error
+
+If you are using a M1 (System-on-a-Chip) in with machine please visit before building the node [Apple M1 Error Handling](https://docs.zentachain.io/zentanetwork#apple-m1-compile-error-handling) otherwise you will not be able to build and compile it.
 
 ## Advanced Introduction 
 For deeper insights into the [Zentanetwork Docs](https://docs.zentachain.io/zentanetwork)
