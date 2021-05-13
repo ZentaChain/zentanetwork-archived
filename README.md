@@ -1,4 +1,4 @@
-  ![last-commit](https://img.shields.io/github/last-commit/Zentachain/Zentanetwork)
+ ![vulnerabilities-counter](https://img.shields.io/snyk/vulnerabilities/github/ZentaChain/Zentanetwork) ![last-commit](https://img.shields.io/github/last-commit/Zentachain/Zentanetwork)
 # :zap: Zentanetwork :zap:
 
 Zentanetwork is a forkless Proof of Stake (PoS) consensus for communication and data storage. 
