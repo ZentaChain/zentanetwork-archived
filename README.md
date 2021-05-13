@@ -82,4 +82,4 @@ For deeper insights into the [Zentanetwork Docs](https://docs.zentachain.io/zent
 ## License
 
 [GNU Affero General Public License v3.0](https://github.com/ZentaChain/Zentanetwork/blob/master/LICENSE)
-![license](https://img.shields.io/github/license/ZentaChain/Zentanetwork)
+ ![license](https://img.shields.io/github/license/ZentaChain/Zentanetwork)
