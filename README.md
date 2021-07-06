@@ -6,19 +6,19 @@ The construction of a forkless network enables Zentalk and Zentavault to make th
 ## Status
 Under active development.
 
-## Build the CHAIN
+## Build the Zentanetwork
 
 ````
 $ git clone https://github.com/ZentaChain/Zentanetwork
 ````
 
-Fast Build check
+Check build
 
 ````
 $ cargo test --all
 ````
 
-Getting Started with Zentanetwork
+Getting Started & release the network
 
 ````
 $ cargo build --release
