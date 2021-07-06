@@ -6,7 +6,7 @@ The construction of a forkless network enables Zentalk and Zentavault to make th
 ## Status
 Under active development.
 
-## Build the $CHAIN
+## Build the CHAIN
 
 ````
 $ git clone https://github.com/ZentaChain/Zentanetwork
