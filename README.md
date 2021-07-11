@@ -3,80 +3,121 @@
 Zentanetwork is a forkless Proof of Stake (PoS) consensus for communication and data storage. 
 The construction of a forkless network enables Zentalk and Zentavault to make the perfect provision for Zentachain ecosystem.
 
-## Status
-Under active development.
-
-## Build the Zentanetwork
+### Getting Started Zentanetwork
 
 ````
+# Clone Zentanetwork repository
 $ git clone https://github.com/ZentaChain/Zentanetwork
 ````
 
 Check build
 
 ````
+This command is a fast check
 $ cargo test --all
 ````
 
-Getting Started & release the network
-
 ````
+# This command will firstly compile the code
 $ cargo build --release
 ````
-
-## Test-networks
 
 ### Local-network
 
 ````
+# Start the local-net
 $ ./target/release/zentachain --local
 ````
 ### Multi-local-network
-Alice
 
 ````
+# Start Alice
 $ ./target/release/zentachain --chain local --alice /tmp/alice
 ````
-Bob
+
 ````
+# Start Bob with the boostnode id
 ./target/release/zentachain chain local --bob /tmp/bob --port 30334 --bootnodes '/ip4/127.0.0.1/tcp/30333/p2p/BOOTNODEID'
 ````
 ## Dev-network
-Run single-node in development network
 
 ````
+# Run single-node development-net
 $ ./target/release/zentachain --dev
 ````
 
-## Zajin-network (Alpha)
-Run single-node in Zajin-network
+### Zajin-network (Alpha)
+
 ````
+# Run single-node Zajin-net
 $ ./target/release/zentachain --zajin
  ````
 
-## Zentachain Main-network (Zikaron-network)
+### Zentachain Main-network (Zikaron)
 
 ````
+Start the Main-net
 $ ./target/release/zentachain --zikaron
 ````
 
-### Purge DB
-Purging chain-database
+### Purge Database
 
 ````
+# Purging chain-database
 $ ./target/release/zentachain purge-chain --"chainID"
 ````
-### Help
-For a breakdown of substrate command-line options
-````
-$ ./target/release/zentachain --help
-````
+
+### Run in Docker
+
+First, install [Docker](https://docs.docker.com/get-docker/) and
+[Docker Compose](https://docs.docker.com/compose/install/).
+
+Then run the following command to start a single node development chain.
+
+```bash
+./scripts/docker_run.sh
+```
+
+```bash
+# Run Substrate node without re-compiling
+./scripts/docker_run.sh ./target/release/zentachain --dev --ws-external
+
+# Purge the local dev chain
+./scripts/docker_run.sh ./target/release/zentachain purge-chain --dev
+
+# Check whether the code is compilable
+./scripts/docker_run.sh cargo check
+```
+
 ### M1 Machine - Build Error
 
-If you are using a M1 (System-on-a-Chip) in with machine please visit before building the node [Apple M1 Error Handling](https://docs.zentachain.io/zentanetwork#apple-m1-compile-error-handling) otherwise you will not be able to build and compile it.
+If you are using a M1 (System-on-a-Chip) in with machine please visit before building the node [Apple M1 Error Handling](https://docs.zentachain.io/zentanetwork#apple-m1-compile-error-handling) otherwise you will not be able to build and compile the network.
 
-## Advanced Introduction 
+Error: E0463 Can't find std.
+
+Be sure you have add nighlty run the command:
+````
+rustup target add wasm32-unknown-unknown --toolchain nightly
+
+OR
+
+rustup target add wasm32-unknown-unknown --toolchain nightly-2021-02-10
+````
+
+If you are using a M1 (System-on-a-Chip) in with machine please visit before building the node [Apple M1 Error Handling](https://docs.zentachain.io/zentanetwork#apple-m1-compile-error-handling) otherwise you will not be able to build and compile the network.
+
+### Advanced Introduction 
 For deeper insights into the [Zentanetwork Docs](https://docs.zentachain.io/zentanetwork)
+
+### Help
+
+````
+# For a breakdown of substrate command-line options
+$ ./target/release/zentachain --help
+````
+
+### Status
+Under active development.
 
 ## License
 
