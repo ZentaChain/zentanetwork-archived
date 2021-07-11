@@ -26,7 +26,7 @@ cargo build --release
 # Start the local-net
 ./target/release/zentachain --local
 ```
-### Multi-local-network
+### Multi local-network
 
 ```bash
 # Start Alice
@@ -44,14 +44,14 @@ cargo build --release
 ./target/release/zentachain --dev
 ```
 
-### Zajin-network (Alpha)
+### Zajin-network (Alpha - POA)
 
 ````bash
 # Run single-node Zajin-net
 $ ./target/release/zentachain --zajin
  ````
 
-### Zentachain Main-network (Zikaron)
+### Zentachain Main-network (Zikaron - POS)
 
 ```bash
 Start the Main-net
@@ -108,6 +108,7 @@ rustup target add wasm32-unknown-unknown --toolchain nightly-2021-02-10
 # For a breakdown of the node command-line options
 ./target/release/zentachain --help
 ```
+
 ### Advanced Introduction 
 For deeper insights into the [Zentanetwork Docs](https://docs.zentachain.io/zentanetwork)
 
