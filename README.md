@@ -102,8 +102,6 @@ OR
 rustup target add wasm32-unknown-unknown --toolchain nightly-2021-02-10
 ````
 
-If you are using a M1 (System-on-a-Chip) in with machine please visit before building the node [Apple M1 Error Handling](https://docs.zentachain.io/zentanetwork#apple-m1-compile-error-handling) otherwise you will not be able to build and compile the network.
-
 ### Help
 
 ```shell
