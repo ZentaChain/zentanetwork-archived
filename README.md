@@ -22,7 +22,7 @@ cargo build --release
 
 ### Local-network
 
-```
+```bash
 # Start the local-net
 ./target/release/zentachain --local
 ```
@@ -54,7 +54,7 @@ $ ./target/release/zentachain --zajin
 ### Zentachain Main-network (Zikaron - POS)
 
 ```bash
-Start the Main-net
+# Start the Main-net
 ./target/release/zentachain --zikaron
 ```
 
@@ -93,8 +93,8 @@ If you are using a M1 (System-on-a-Chip) in with machine please visit before bui
 
 Error: E0463 Can't find std.
 
-Be sure you have add nighlty run the command:
-````
+```sh
+# Be sure you have add nighlty run the command:
 rustup target add wasm32-unknown-unknown --toolchain nightly
 
 OR
