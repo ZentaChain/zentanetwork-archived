@@ -48,14 +48,14 @@ cargo build --release
 
 ````bash
 # Run single-node Zajin-net
-$ ./target/release/zentachain --zajin
+$ ./target/release/zentachain --chain zajin
  ````
 
 ### Zentachain Main-network (Zikaron - POS)
 
 ```bash
 # Start the Main-net
-./target/release/zentachain --zikaron
+./target/release/zentachain --chain zikaron
 ```
 
 ### Purge Database
@@ -94,12 +94,12 @@ If you are using a M1 (System-on-a-Chip) in with machine please visit before bui
 Error: E0463 Can't find std.
 
 ```sh
-# Be sure you have add nighlty run the command:
+# Be sure you have add nightly run the command:
 rustup target add wasm32-unknown-unknown --toolchain nightly
 
 OR
 
-rustup target add wasm32-unknown-unknown --toolchain nightly-2021-02-10
+rustup target add wasm32-unknown-unknown --toolchain nightly-2021-05-23
 ````
 
 ### Help
