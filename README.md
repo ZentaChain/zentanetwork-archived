@@ -1,6 +1,6 @@
 # :zap: Zentanetwork :zap:
 
-Zentanetwork is a forkless Proof of Stake (PoS) consensus for communication and data storage. 
+Zentanetwork is a forkless Proof of Stake (PoS) consensus for communication and data storage.
 The construction of a forkless network enables Zentalk and Zentavault to make the perfect provision for Zentachain ecosystem.
 
 ### Getting Started Zentanetwork
@@ -26,6 +26,7 @@ cargo build --release
 # Start the local-net
 ./target/release/zentachain --local
 ```
+
 ### Multi local-network
 
 ```bash
@@ -37,6 +38,7 @@ cargo build --release
 # Start Bob with the boostnode id
 ./target/release/zentachain chain local --bob /tmp/bob --port 30334 --bootnodes '/ip4/127.0.0.1/tcp/30333/p2p/BOOTNODEID'
 ```
+
 ### Development-network
 
 ```bash
@@ -54,15 +56,22 @@ $ ./target/release/zentachain --chain zajin
 ### Zentachain Main-network (Zikaron - POS)
 
 ```bash
-# Start the Main-net
+# Start the main-net
 ./target/release/zentachain --chain zikaron
 ```
 
-### Purge Database
+### Zentachain Main-network (Katsumi - POS)
+
+```bash
+# Start the main-net of Katsumi
+./target/release/zentachain --chain katsumi
+```
+
+### Purge Database of the Network
 
 ```bash
 # Purging chain-database
-./target/release/zentachain purge-chain --"chainID"
+./target/release/zentachain purge-chain --"chain-ID"
 ```
 
 ### Run in Docker
@@ -110,7 +119,7 @@ rustup target add wasm32-unknown-unknown --toolchain nightly-2021-05-23
 ```
 
 ### Advanced Introduction 
-For deeper insights into the [Zentanetwork Docs](https://docs.zentachain.io/zentanetwork)
+For deeper insights into the [Zentanetwork](https://docs.zentachain.io/zentanetwork)
 
 ### Status
 Under active development.
