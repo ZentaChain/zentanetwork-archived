@@ -96,21 +96,6 @@ Then run the following command to start a single node development chain.
 ./scripts/docker_run.sh cargo check
 ```
 
-### M1 Machine - Build Error
-
-If you are using a M1 (System-on-a-Chip) in with machine please visit before building the node [Apple M1 Error Handling](https://docs.zentachain.io/zentanetwork#apple-m1-compile-error-handling) otherwise you will not be able to build and compile the network.
-
-Error: E0463 Can't find std.
-
-```sh
-# Be sure you have add nightly run the command:
-rustup target add wasm32-unknown-unknown --toolchain nightly
-
-OR
-
-rustup target add wasm32-unknown-unknown --toolchain nightly-2021-05-23
-````
-
 ### Help
 
 ```shell
