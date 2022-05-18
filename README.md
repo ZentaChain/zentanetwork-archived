@@ -60,11 +60,11 @@ $ ./target/release/zentachain --chain zajin
 ./target/release/zentachain --chain zikaron
 ```
 
-### Zentachain Main-network (Katsumi - POS)
+### Zentachain Main-network (Alnitak - POS)
 
 ```bash
-# Start the main-net of Katsumi
-./target/release/zentachain --chain katsumi
+# Start the main-net of Alnitak
+./target/release/zentachain --chain alnitak
 ```
 
 ### Purge Database of the Network
