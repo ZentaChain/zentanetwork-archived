@@ -32,9 +32,9 @@ impl SubstrateCli for Cli {
 	fn load_spec(&self, id: &str) -> Result<Box<dyn sc_service::ChainSpec>, String> {
 		Ok(match id {
 			"zajin" => Box::new(chain_spec::zajin_testnet_config()?),
-			"katsumi" => Box::new(chain_spec::katsumi_testnet_config()?),
+			"alnitak" => Box::new(chain_spec::katsumi_testnet_config()?),
 			"zajin-staging" => Box::new(chain_spec::zajin_staging_config()?),
-			"katsumi-staging" => Box::new(chain_spec::katsumi_staging_config()),
+			"alnitak-staging" => Box::new(chain_spec::alnitak_staging_config()),
 			"dev" => Box::new(chain_spec::development_config()?),
 			"" | "local" => Box::new(chain_spec::local_testnet_config()?),
 			path => Box::new(chain_spec::ZentachainChainSpec::from_json_file(
